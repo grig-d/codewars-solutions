@@ -10,53 +10,35 @@
 // 111 ==> -1
 // 531 ==> -1
 
-
 function nextBigger(n) {
-  console.log(n);
-}
+  const inputArray = [...`${n}`];
+  let curIndex = inputArray.length - 1;
+  let baseChar, rightSorted;
 
-nextBigger(24753);
-
-
-
-
-
-/* 
-function nextBigger(n) {
-  const nums = n.toString().split('');
-
-  for (let i = 0; i < nums.length - 1; i++) {
-
-    // let newNum;
-    console.log(nums, [nums[nums.length - 1 - i], nums[nums.length - 1 - i - 1]]);
-    // splice
-    // console.log(revChar(numArr));
+  while (curIndex > 0) {
+    curIndex -= 1;
+    baseChar = inputArray[curIndex];
+    rightSorted = inputArray
+      .slice(curIndex + 1)
+      .filter(element => element > baseChar)
+      .sort();
+    if (rightSorted.length > 0) {
+      const leftArray = inputArray.slice(0, curIndex);
+      const rightArray = inputArray.slice(curIndex + 1);
+      rightArray[rightArray.indexOf(rightSorted[0])] = baseChar;
+      baseChar = rightSorted[0];
+      return Number([...leftArray, baseChar, ...rightArray.sort()].join(''));
+    }
   }
   return -1;
 }
 
-function revChar(arr) {
-  const result = 1;
-  return parseInt([...arr].reverse().join(''));
-}
-
-console.log(nextBigger(12), 21);
-console.log(nextBigger(513), 531);
-console.log(nextBigger(2017), 2071);
-console.log(nextBigger(414), 441);
-console.log(nextBigger(144), 414);
-
-// 2017
-// 2-0-1-7 reverse1 2-0-[7-1] > 2017 ? return 2071 : not
-// 2-0-1-7 reverse2 2-[1-0]-7 > 2017 ? return 2107 : not
-// 2-0-1-7 reverse3 [0-2]-1-7 > 2017 ? return 0217 : not return -1
-
-let arrr = [0,1,2,3,4];
-console.log([...arrr].splice(0, 0)); // []
-console.log([...arrr].splice(0, 1)); // [0]
-console.log([...arrr].splice(1, 1)); // [1]
-console.log([...arrr].splice(1, 0)); // []
-console.log([...arrr].splice(0, 2)); // [0, 1]
-console.log([...arrr].splice(0, 3)); // [0, 1, 2]
-console.log([...arrr].splice(3, 1)); // [3]
-*/
+console.log(`12 ==> ${nextBigger(12)}`);
+console.log(`513 ==> ${nextBigger(513)}`);
+console.log(`2017 ==> ${nextBigger(2017)}`);
+console.log(`414 ==> ${nextBigger(414)}`);
+console.log(`144 ==> ${nextBigger(144)}`);
+console.log(`9 ==> ${nextBigger(9)}`);
+console.log(`111 ==> ${nextBigger(111)}`);
+console.log(`531 ==> ${nextBigger(531)}`);
+console.log(`954472 ==> ${nextBigger(954472)}`);
