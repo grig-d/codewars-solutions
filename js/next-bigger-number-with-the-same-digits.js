@@ -10,6 +10,18 @@
 // 111 ==> -1
 // 531 ==> -1
 
+
+function nextBigger(n) {
+  console.log(n);
+}
+
+nextBigger(24753);
+
+
+
+
+
+/* 
 function nextBigger(n) {
   const nums = n.toString().split('');
 
@@ -47,3 +59,4 @@ console.log([...arrr].splice(1, 0)); // []
 console.log([...arrr].splice(0, 2)); // [0, 1]
 console.log([...arrr].splice(0, 3)); // [0, 1, 2]
 console.log([...arrr].splice(3, 1)); // [3]
+*/
