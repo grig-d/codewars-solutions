@@ -16,10 +16,68 @@
 
 // NOTE 2: The 0x0 (empty matrix) is represented as en empty array inside an array [[]].
 
-// snail([[]]), [])
-// snail([[1]]), [1]);
-// snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [1, 2, 3, 6, 9, 8, 7, 4, 5]);
+snail = function (array) {
+  const result = [];
+  // n is number of rows (columns), n x n
+  const n = array[0].length;
+  const iterations = n * 2 - 1;
+  let currentMatrix = [...array];
+  console.log(array);
+  console.log('n', n);
+  console.log('iterations', iterations);
+  console.log('currentMatrix', currentMatrix);
 
+  return result;
+};
+
+function decreaseMatrix(array) {
+  console.log(array);
+  const decreasedMatrix = [];
+  console.log(decreasedMatrix);
+
+  // while n>1
+  // shift & pop
+  return decreasedMatrix;
+}
+
+// peel
+
+// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+// const arr = [[]];
+// const arr = [[1]];
+const arr = [
+  [1, 2],
+  [4, 5],
+];
+const lastElem = arr.pop().reverse();
+const preLastElem = arr.flatMap(e => e);
+const res = [...preLastElem, ...lastElem];
+console.log('lastElem', lastElem);
+console.log('preLastElem', preLastElem);
+console.log(res);
+// *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+
+
+// console.log(snail([[]]));
+
+// console.log(snail([[1]]));
+
+// console.log(
+//   snail([
+//     [1, 2],
+//     [4, 5],
+//   ]),
+// );
+
+// console.log(
+//   snail([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//   ]),
+// );
+
+/*
 snail = function (array) {
   let result = [];
   let n = array[0].length;
@@ -79,22 +137,11 @@ snail = function (array) {
   //
   return result;
 };
+*/
 
+///////////////////////////////////////////////////////////////////////////
 // console.log(snail([[]]));
-
 // console.log(snail([[1]]));
-
-console.log(
-  snail([
-    [1, 2],
-    [4, 5],
-  ]),
-);
-
-console.log(
-  snail([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ]),
-);
+// snail([[]]), [])
+// snail([[1]]), [1]);
+// snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [1, 2, 3, 6, 9, 8, 7, 4, 5]);
