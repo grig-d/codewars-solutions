@@ -18,49 +18,78 @@
 
 snail = function (array) {
   const result = [];
+
   // n is number of rows (columns), n x n
-  const n = array[0].length;
-  const iterations = n * 2 - 1;
-  let currentMatrix = [...array];
-  console.log(array);
-  console.log('n', n);
-  console.log('iterations', iterations);
-  console.log('currentMatrix', currentMatrix);
+  // const n = arr[0].length;
+
+  let currentMatrix = [...arr];
 
   return result;
 };
 
 function decreaseMatrix(array) {
-  console.log(array);
-  const decreasedMatrix = [];
-  console.log(decreasedMatrix);
+  const n = array[0].length;
+  let snail = [];
+  let decreasedMatrix = [...array];
+  // peelTop
+  snail = [...decreasedMatrix.shift()];
+  // peelBottom
+  let peelBottom = [];
+  if (n > 1) {
+    peelBottom = [...decreasedMatrix.pop().reverse()];
+  }
+  // peelRight & peelLeft if n > 2
+  let peelRight = [];
+  let peelLeft = [];
+  if (n > 2) {
+    //----------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    console.log('inner decreasedMatrix', decreasedMatrix);
+    peelRight = decreasedMatrix.map(row => row.pop());
+    peelLeft = decreasedMatrix.map(row => row.shift());
+    console.log('right', peelRight);
+    console.log('left', peelLeft);
+  }
 
-  // while n>1
-  // shift & pop
+  snail = [...snail, ...peelRight, ...peelBottom, ...peelLeft];
+
+  console.log('decreasedMatrix', decreasedMatrix);
+  console.log('snail', snail);
   return decreasedMatrix;
 }
 
-// peel
-
+// const ar2 = [
+//   [1, 2],
+//   [4, 5],
+// ];
+const ar2 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+decreaseMatrix(ar2);
 // *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 // const arr = [[]];
 // const arr = [[1]];
-const arr = [
-  [1, 2],
-  [4, 5],
-];
+// const arr = [
+//   [1, 2],
+//   [4, 5],
+// ];
+/*
 const lastElem = arr.pop().reverse();
 const preLastElem = arr.flatMap(e => e);
 const res = [...preLastElem, ...lastElem];
 console.log('lastElem', lastElem);
 console.log('preLastElem', preLastElem);
-console.log(res);
+console.log('res', res);
+console.log('arr', arr, 'length', arr.length);
+*/
 // *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
 
-
 // console.log(snail([[]]));
+// []
 
 // console.log(snail([[1]]));
+// [1]
 
 // console.log(
 //   snail([
@@ -68,6 +97,7 @@ console.log(res);
 //     [4, 5],
 //   ]),
 // );
+// [1, 2, 5, 4]
 
 // console.log(
 //   snail([
@@ -76,72 +106,12 @@ console.log(res);
 //     [7, 8, 9],
 //   ]),
 // );
+// [1, 2, 3, 6, 9, 8, 7, 4, 5]
 
-/*
-snail = function (array) {
-  let result = [];
-  let n = array[0].length;
-  let iterations = n * 2 - 1;
-  console.log(`n=${n}, iterations=${iterations}`);
-  //
-  // start(i=0; j=0)
-  // i=0 i=1 i=2  / j=0
-  // i=2          / j=1 j=2
-  // i=1 i=0      / j=2
-  // i=0          / j=1
-  // start(i=1; j=1)
-  //
-  let startPoint = [0, 0];
-  let maxWay = n;
-  console.log(`startPoint=${startPoint}, maxWay=${maxWay}`);
-  let x = 0;
-  let y = 0;
-  //   while way > 0
-  for (x; x < maxWay; x++) {
-    console.log(`x=${x}, y=${y}`);
-    result.push(array[y][x]);
-  }
-  x = x - 1;
-  y = y + 1;
-  for (y; y < maxWay; y++) {
-    console.log(`x=${x}, y=${y}`);
-    result.push(array[y][x]);
-  }
-  y = y - 1;
-  x = x - 1;
-  for (x; x >= startPoint[0]; x--) {
-    console.log(`x=${x}, y=${y}`);
-    result.push(array[y][x]);
-  }
-  x = x + 1;
-  y = y - 1;
-  maxWay = maxWay - 1;
-  console.log(`startPoint=${startPoint}, maxWay=${maxWay}`);
-  if ((maxWay = 0)) {
-    return result;
-  }
-  for (y; y > startPoint[1]; y--) {
-    console.log(`x=${x}, y=${y}`);
-    result.push(array[y][x]);
-  }
-
-//   maxWay = maxWay - 1;
-  startPoint[0] = startPoint[0] + 1;
-  startPoint[1] = startPoint[1] + 1;
-  console.log(`startPoint=${startPoint}, maxWay=${maxWay}`);
-  if ((maxWay = 0)) {
-    return result;
-  }
-
-  //
-  //
-  return result;
-};
-*/
-
-///////////////////////////////////////////////////////////////////////////
-// console.log(snail([[]]));
-// console.log(snail([[1]]));
-// snail([[]]), [])
-// snail([[1]]), [1]);
-// snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), [1, 2, 3, 6, 9, 8, 7, 4, 5]);
+// console.log('* * *');
+// function recursion (num) {
+//   console.log(num);
+//   num -= 1;
+//   if(num > 0 ) {recursion (num)}
+// }
+// recursion (3);
