@@ -1,9 +1,11 @@
-// 'xsdlafqpcmjytoikojsecamgdkehrqqgfknlhoudqygkbxftivfbpxhxtqgpkvsrfflpgrlhkbfnyftwkdebwfidmpauoteahyh' = 'acdeghlmnqrvyz'
+/*
+'xsdlafqpcmjytoikojsecamgdkehrqqgfknlhoudqygkbxftivfbpxhxtqgpkvsrfflpgrlhkbfnyftwkdebwfidmpauoteahyh' = 'acdeghlmnqrvyz'
 
-// let str = "zzzab"
-// str = "azab"
-// str = "bzb"
-// str = "cz"
+let str = "zzzab"
+str = "azab"
+str = "bzb"
+str = "cz"
+*/
 
 const CHECK =
   'xsdlafqpcmjytoikojsecamgdkehrqqgfknlhoudqygkbxftivfbpxhxtqgpkvsrfflpgrlhkbfnyftwkdebwfidmpauoteahyh';

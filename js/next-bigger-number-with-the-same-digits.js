@@ -1,3 +1,4 @@
+/*
 // Create a function that takes a positive integer and returns the next bigger number that can be formed by rearranging its digits. For example:
 // 12 ==> 21
 // 513 ==> 531
@@ -9,6 +10,7 @@
 // 9 ==> -1
 // 111 ==> -1
 // 531 ==> -1
+*/
 
 function nextBigger(n) {
   const inputArray = [...`${n}`];
@@ -33,9 +35,9 @@ function nextBigger(n) {
   return -1;
 }
 
-console.log(`12 ==> ${nextBigger(12)}`);
-console.log(`513 ==> ${nextBigger(513)}`);
-console.log(`2017 ==> ${nextBigger(2017)}`);
+console.log(`12 ==> ${nextBigger(12)}`); // 21
+console.log(`513 ==> ${nextBigger(513)}`); // 531
+console.log(`2017 ==> ${nextBigger(2017)}`); // 2071
 console.log(`414 ==> ${nextBigger(414)}`);
 console.log(`144 ==> ${nextBigger(144)}`);
 console.log(`9 ==> ${nextBigger(9)}`);
