@@ -51,9 +51,6 @@ https://www.codewars.com/kata/59074d68cc21024b4300006d
 
 5 kyu ------------------------------------------------
 
-Sum of pairs
-https://www.codewars.com/kata/54d81488b981293527000c8f
-
 Best travel
 https://www.codewars.com/kata/55e7280b40e1c4a06d0000aa
 
