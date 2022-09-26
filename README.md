@@ -34,25 +34,16 @@ https://www.codewars.com/kata/59c5d0b0a25c8c99ca000237
 
 4 kyu ------------------------------------------------
 
-Sum of Intervals
-https://www.codewars.com/kata/52b7ed099cdc285c300001cd
-
 Validate Sudoku with size `NxN`
 https://www.codewars.com/kata/540afbe2dc9f615d5e000425
-
-Explosive Sum
-https://www.codewars.com/kata/52ec24228a515e620b0005ef
-
-Product-Sum Numbers
-https://www.codewars.com/kata/5b16bbd2c8c47ec58300016e
-
-One Line Task: Snail Coordinate
-https://www.codewars.com/kata/59074d68cc21024b4300006d
 
 5 kyu ------------------------------------------------
 
 Best travel
 https://www.codewars.com/kata/55e7280b40e1c4a06d0000aa
+
+Molecule to atoms
+https://www.codewars.com/kata/52f831fa9d332c6591000511
 
 -->
 
