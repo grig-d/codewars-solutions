@@ -54,12 +54,6 @@ https://www.codewars.com/kata/59074d68cc21024b4300006d
 Best travel
 https://www.codewars.com/kata/55e7280b40e1c4a06d0000aa
 
-Can you get the loop
-https://www.codewars.com/kata/52a89c2ea8ddc5547a000863
-
-Primes in numbers
-https://www.codewars.com/kata/54d512e62a5e54c96200019e
-
 -->
 
 
