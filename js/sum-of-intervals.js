@@ -47,20 +47,22 @@ Your algorithm should be able to handle large intervals. All tested intervals ar
 */
 
 function sumIntervals(intervals) {
-  let entity = [...intervals];
+  let currentArray = [...intervals];
   let sum = 0;
-  console.log(entity);
-  const first = entity.shift();
-  console.log('first', first);
-  const second = entity.find(el => isOverlap(first, el));
-  if (second) {
-    // join
-  } else {
-    sum += first[1] - first[0];
+  let first = currentArray.shift();
+  while (currentArray.length) {
+    const second = currentArray.find(el => isOverlap(first, el));
+    if (second) {
+      // join if second is overlapping with first
+      // and replace second with new
+      currentArray[currentArray.indexOf(second)] = joinIntervals(first, second);
+    } else {
+      sum += first[1] - first[0];
+    }
+    first = currentArray.shift();
   }
-  console.log('sum', sum);
-  console.log('second', second);
-  console.log('entity', entity);
+  sum += first[1] - first[0];
+  return sum;
 }
 
 function isOverlap(a, b) {
@@ -70,68 +72,77 @@ function isOverlap(a, b) {
   return !(a[0] > b[1] || a[1] < b[0]);
 }
 
-sumIntervals([
-  [1, 5],
-  [6, 10],
-]);
-// const b = [6, 10];
-// const a = [1, 4];
-// const b = [7, 10];
-// const b = [3, 5];
+function joinIntervals(a, b) {
+  const args = [...a, ...b];
+  const interval = [Math.min(...args), Math.max(...args)];
+  return interval;
+}
 
-/*
-sumIntervals([[1, 5]]);
+console.log(sumIntervals([[1, 5]]));
 // 4
 
-sumIntervals([
-  [1, 5],
-  [6, 10],
-]);
+console.log(
+  sumIntervals([
+    [1, 5],
+    [6, 10],
+  ]),
+);
 // 8
 
-sumIntervals([
-  [1, 5],
-  [1, 5],
-]);
+console.log(
+  sumIntervals([
+    [1, 5],
+    [1, 5],
+  ]),
+);
 // 4
 
-sumIntervals([
-  [1, 4],
-  [7, 10],
-  [3, 5],
-]);
+console.log(
+  sumIntervals([
+    [1, 4],
+    [7, 10],
+    [3, 5],
+  ]),
+);
 // 7
 
-sumIntervals([
-  [1, 2],
-  [6, 10],
-  [11, 15],
-]);
+console.log(
+  sumIntervals([
+    [1, 2],
+    [6, 10],
+    [11, 15],
+  ]),
+);
 // 9
 
-sumIntervals([
-  [1, 5],
-  [10, 20],
-  [1, 6],
-  [16, 19],
-  [5, 11],
-]);
+console.log(
+  sumIntervals([
+    [1, 5],
+    [10, 20],
+    [1, 6],
+    [16, 19],
+    [5, 11],
+  ]),
+);
 // 19
 
-sumIntervals([
-  [0, 20],
-  [-100000000, 10],
-  [30, 40],
-]);
+console.log(
+  sumIntervals([
+    [0, 20],
+    [-100000000, 10],
+    [30, 40],
+  ]),
+);
 // 100000030
 
-sumIntervals([[-1e9, 1e9]]);
+console.log(sumIntervals([[-1e9, 1e9]]));
 // 2e9
 
-sumIntervals([
-  [0, 20],
-  [-1e8, 10],
-  [30, 40],
-]);
+console.log(
+  sumIntervals([
+    [0, 20],
+    [-1e8, 10],
+    [30, 40],
+  ]),
+);
 // 1e8 + 30
-*/
