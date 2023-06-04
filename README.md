@@ -1,4 +1,4 @@
-# codewars-solutions
+## codewars-solutions
 <!--
 Awarded Score by Kata Rank
 1 kyu task = 1097 scores
